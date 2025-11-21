@@ -8,15 +8,14 @@ export function Hero() {
     return (
         <section className="relative min-h-screen w-full overflow-hidden bg-black flex items-center">
             <div className="container px-4 md:px-6">
-                <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr,auto] items-center gap-8 lg:gap-16">
                     {/* Left Column - Content */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="relative z-10"
                     >
-                        <div className="relative flex flex-col justify-center py-12">
+                        <div className="flex flex-col justify-center py-12">
                             {/* Headline */}
                             <h1 className="font-koulen text-[64px] leading-[0.9] tracking-tight text-white sm:text-[88px] lg:text-[112px] uppercase">
                                 STOP USING AI
@@ -38,18 +37,21 @@ export function Hero() {
                         </div>
                     </motion.div>
 
-                    {/* Right Column - Visual Element */}
-                    <div className="relative hidden lg:block h-[600px] w-full">
-                        <div className="relative h-full w-full">
-                             <Image 
-                                src="/images/hero-woman.png" 
-                                alt="Woman portrait" 
-                                fill
-                                className="object-contain object-center"
-                                priority
-                             />
-                        </div>
-                    </div>
+                    {/* Right Column - Hero Badge */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                        className="hidden lg:block"
+                    >
+                        <img 
+                            src="/images/hero-badge.png" 
+                            alt="Badge" 
+                            width="400" 
+                            height="400"
+                            className="object-contain"
+                        />
+                    </motion.div>
                 </div>
             </div>
         </section>
